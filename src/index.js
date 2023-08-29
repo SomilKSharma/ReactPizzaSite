@@ -49,12 +49,45 @@ const pizzaData = [
 
 // create the app component
 function App() {
-    return <div><h1> Hello React!</h1>
-        <Pizza />
-        <Pizza />
-        <Pizza />
-    </div>
+    return (
+        <div>
+            <Header />
+            <Menu />
+            <Footer />
+        </div>
+    )
 }
+
+// header component
+function Header() {
+    return <h1>Doon Pizza</h1>
+}
+
+// menu component
+function Menu() {
+    return (
+        <nav>
+            <h2>Our Menu</h2>
+            <Pizza />
+            <Pizza />
+            <Pizza />
+            <Pizza />
+        </nav>
+    )
+}
+
+// footer component
+function Footer() {
+    // create a new variable
+    const hour = new Date().getHours()
+    const openHour = 8
+    const closeHour = 22
+    const isOpen = openHour <= hour <= closeHour
+    return (
+        <footer>{new Date().toLocaleTimeString()}We're currently open</footer>
+    )
+}
+
 
 // function of the pizza
 function Pizza() {
