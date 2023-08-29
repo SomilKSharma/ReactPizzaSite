@@ -6,6 +6,8 @@ function App() {
     return <h1> Hello React!</h1>
 }
 
+
+
 // create root
 const root = ReactDOM.createRoot(
     document.getElementById(`root`)
