@@ -1,5 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
+import './index.css'
 
 const pizzaData = [
     {
@@ -46,11 +47,10 @@ const pizzaData = [
     },
 ];
 
-
 // create the app component
 function App() {
     return (
-        <div>
+        <div className="container">
             <Header />
             <Menu />
             <Footer />
@@ -60,20 +60,58 @@ function App() {
 
 // header component
 function Header() {
-    return <h1>Doon Pizza</h1>
+    return (
+        <header className="header">
+            <h1 >
+                Doon Pizza
+            </h1>
+        </header>
+    )
 }
 
 // menu component
 function Menu() {
     return (
-        <nav>
+        <main className="menu">
             <h2>Our Menu</h2>
-            <Pizza />
-            <Pizza />
-            <Pizza />
-            <Pizza />
-        </nav>
+            <Pizza
+                name='Pizza Spinaci'
+                ingredient='Tomato, mozarella, spinach, and ricotta cheese'
+                photoName='pizzas/spinaci.jpg'
+                price={100}
+            />
+            <Pizza
+                name='Pizza Funghi'
+                ingredient='Mozarella, Mushroom, and Apple'
+                photoName='pizzas/funghi.jpg'
+                price={10}
+            />
+            <Pizza
+                name='Pizza Spinaci'
+                ingredient='Tomato, mozarella, spinach, and ricotta cheese'
+                photoName='pizzas/spinaci.jpg'
+                price={15}
+            />
+            <Pizza
+                name='Pizza Spinaci'
+                ingredient='Tomato, mozarella, spinach, and ricotta cheese'
+                photoName='pizzas/spinaci.jpg'
+                price={78}
+            />
+        </main>
     )
+}
+
+// function of the pizza
+function Pizza(props) {
+    return <div className="pizza">
+        <img src={props.photoName} alt={props.name} />
+        <div>
+            <h3>{props.name}</h3>
+            <p>{props.ingredient}</p>
+            <span>{props.price + 3}</span>
+        </div>
+    </div>
 }
 
 // footer component
@@ -84,18 +122,10 @@ function Footer() {
     const closeHour = 22
     const isOpen = openHour <= hour <= closeHour
     return (
-        <footer>{new Date().toLocaleTimeString()}We're currently open</footer>
+        <footer className="footer">
+            {new Date().toLocaleTimeString()}  We're currently open
+        </footer>
     )
-}
-
-
-// function of the pizza
-function Pizza() {
-    return <div>
-        <img src="pizzas/spinaci.jpg" alt="pizza" />
-        <h2>Pizza Funghi</h2>
-        <p>Tomato, mozarella, spinach, and ricotta cheese</p>
-    </div>
 }
 
 // create root
