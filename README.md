@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Images
+
+![Screenshot 2023-08-30 at 10 07 20 AM](https://github.com/SomilKSharma/ReactPizzaSite/assets/120346284/da5f75b8-e72f-415f-bded-6adb73be7b86)
+
 
 ## Available Scripts
 
