@@ -72,9 +72,11 @@ function Header() {
 
 // menu component
 function Menu() {
+    // check if pizzas are there
     return (
         <main className="menu">
             <h2>Our Menu</h2>
+            <p>Authetic Food of Italian origin</p>
             <ul className="pizzas">
                 {pizzaData.map(pizza =>
                     <Pizza
@@ -89,6 +91,7 @@ function Menu() {
 
 // function of the pizza
 function Pizza(props) {
+
     return <li className="pizza">
         <img src={props.pizzaObject.photoName} alt={props.pizzaObject.name} />
         <div>
@@ -106,20 +109,14 @@ function Footer() {
     const openHour = 11
     const closeHour = 22
     const isOpen = openHour <= hour && hour <= closeHour
-    // check for open and close
-    if (isOpen) {
-        return (
-            <footer className="footer">
-                {new Date().toLocaleTimeString()} <b> We're currently open</b>
-            </footer>
-        )
-    } else {
-        return (
-            <footer className="footer">
-                {new Date().toLocaleTimeString()} <b>We're not open</b>
-            </footer>
-        )
-    }
+    // check for open and close and return
+    return (
+        <footer className="footer">
+            <p>{isOpen ? `We are Open` : `We are closed`}</p>
+            <button className="btn">Order</button>
+        </footer >
+    )
+
 
 }
 
