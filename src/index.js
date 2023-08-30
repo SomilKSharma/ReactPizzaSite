@@ -2,6 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import './index.css'
 
+// pizza data for putting in the application
 const pizzaData = [
     {
         name: "Focaccia",
@@ -87,15 +88,15 @@ function Menu() {
                 price={10}
             />
             <Pizza
-                name='Pizza Spinaci'
+                name='Pizza Salamino'
                 ingredient='Tomato, mozarella, spinach, and ricotta cheese'
-                photoName='pizzas/spinaci.jpg'
+                photoName='pizzas/salamino.jpg'
                 price={15}
             />
             <Pizza
-                name='Pizza Spinaci'
+                name='Pizza Prosciutto'
                 ingredient='Tomato, mozarella, spinach, and ricotta cheese'
-                photoName='pizzas/spinaci.jpg'
+                photoName='pizzas/prosciutto.jpg'
                 price={78}
             />
         </main>
@@ -118,14 +119,24 @@ function Pizza(props) {
 function Footer() {
     // create a new variable
     const hour = new Date().getHours()
-    const openHour = 8
+    const openHour = 11
     const closeHour = 22
-    const isOpen = openHour <= hour <= closeHour
-    return (
-        <footer className="footer">
-            {new Date().toLocaleTimeString()}  We're currently open
-        </footer>
-    )
+    const isOpen = openHour <= hour && hour <= closeHour
+    // check for open and close
+    if (isOpen) {
+        return (
+            <footer className="footer">
+                {new Date().toLocaleTimeString()} <b> We're currently open</b>
+            </footer>
+        )
+    } else {
+        return (
+            <footer className="footer">
+                {new Date().toLocaleTimeString()} <b>We're not open</b>
+            </footer>
+        )
+    }
+
 }
 
 // create root
