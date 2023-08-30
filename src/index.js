@@ -75,44 +75,28 @@ function Menu() {
     return (
         <main className="menu">
             <h2>Our Menu</h2>
-            <Pizza
-                name='Pizza Spinaci'
-                ingredient='Tomato, mozarella, spinach, and ricotta cheese'
-                photoName='pizzas/spinaci.jpg'
-                price={100}
-            />
-            <Pizza
-                name='Pizza Funghi'
-                ingredient='Mozarella, Mushroom, and Apple'
-                photoName='pizzas/funghi.jpg'
-                price={10}
-            />
-            <Pizza
-                name='Pizza Salamino'
-                ingredient='Tomato, mozarella, spinach, and ricotta cheese'
-                photoName='pizzas/salamino.jpg'
-                price={15}
-            />
-            <Pizza
-                name='Pizza Prosciutto'
-                ingredient='Tomato, mozarella, spinach, and ricotta cheese'
-                photoName='pizzas/prosciutto.jpg'
-                price={78}
-            />
+            <ul className="pizzas">
+                {pizzaData.map(pizza =>
+                    <Pizza
+                        pizzaObject={pizza}
+                        key={pizza.name}
+                    />
+                )}
+            </ul>
         </main>
     )
 }
 
 // function of the pizza
 function Pizza(props) {
-    return <div className="pizza">
-        <img src={props.photoName} alt={props.name} />
+    return <li className="pizza">
+        <img src={props.pizzaObject.photoName} alt={props.pizzaObject.name} />
         <div>
-            <h3>{props.name}</h3>
-            <p>{props.ingredient}</p>
-            <span>{props.price + 3}</span>
+            <h3>{props.pizzaObject.name}</h3>
+            <p>{props.pizzaObject.ingredients}</p>
+            <span>{props.pizzaObject.price + 3}</span>
         </div>
-    </div>
+    </li>
 }
 
 // footer component
